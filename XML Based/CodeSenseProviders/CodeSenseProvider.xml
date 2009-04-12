@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<codesense>
+
+	<!-- Basil Helpers -->
+	<provider>
+		<selector>source.php</selector>
+		<completions>com.conceitedsoftware.basil.constants</completions>
+		<completions>com.conceitedsoftware.basil.functions</completions>
+		<completions>com.conceitedsoftware.basil.util.functions</completions>
+		<completions>com.conceitedsoftware.basil.classes</completions>
+        <complete-match>[\$a-zA-Z0-9-_]+</complete-match>
+	</provider>
+	
+	<!-- Basil Classes -->
+	<provider>
+		<selector>source.php</selector>
+		<completions>com.conceitedsoftware.basil.classes</completions>
+		<complete-match capture="2">(new )([a-zA-Z0-9]*)</complete-match>
+	</provider>
+	
+	<!-- Combined Class methods -->
+	<provider>
+		<selector>source.php</selector>
+		<completions>com.conceitedsoftware.basil.classes.BSPlugIn.methods</completions>
+		<completions>com.conceitedsoftware.basil.classes.BSView.methods</completions>
+		<completions>com.conceitedsoftware.basil.classes.BSObject.methods</completions>
+		<completions>com.conceitedsoftware.basil.classes.BSString.methods</completions>
+		<completions>com.conceitedsoftware.basil.classes.BSDictionary.methods</completions>
+		<completions>com.conceitedsoftware.basil.classes.BSMutableArray.methods</completions>
+		<complete-match capture="2">(.*\-\>)([a-zA-Z0-9]*)</complete-match>
+	</provider>
+</codesense>

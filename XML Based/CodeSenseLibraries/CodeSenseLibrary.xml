@@ -1,0 +1,943 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+CodeSense Libraries simply define lists of completions, categorized by keys. They don't define any criteria for when they should be used; this is the domain of a CodeSense Provider.
+
+-->
+<codesense version="1.0">
+
+    <set name="com.conceitedsoftware.basil.constants">
+    	<completion string="BASIL_API_PATH" />
+    	<completion string="BASIL_API_SYSTEM_PATH" />
+		<completion string="BASIL_API_PLUGINS_PATH" />
+		<completion string="BASIL_API_FRAMEWORKS_PATH" />
+
+		<completion string="BASIL_API_TIMEZONE" />
+		<completion string="BASIL_API_LANGUAGE" />
+		<completion string="BASIL_API_DEFAULT_ACTION" />
+		
+		<completion string="BASIL_ENABLE_GZIP" />
+		
+		<completion string="BASIL_DEBUG_MODE" />
+		<completion string="BASIL_DEBUG_LOG_FILE" />
+		<completion string="BASIL_DEBUG_LOG_LEVEL" />
+		
+		<completion string="BASIL_HTTP_REQUIRE_AUTH" />
+		<completion string="BASIL_HTTP_USER" />
+		<completion string="BASIL_HTTP_PASS" />
+		<completion string="BASIL_HTTP_REALM" />
+		<completion string="BASIL_HTTP_ALLOW_GET" />
+		<completion string="BASIL_H TTP_ALLOW_SPIDER" />
+		<completion string="BASIL_HTTP_REQUIRE_SSL" />
+		
+		<completion string="BASIL_EMAIL_USER" />
+		<completion string="BASIL_EMAIL_PASS" />
+		<completion string="BASIL_EMAIL_NAME" />
+		<completion string="BASIL_EMAIL_HOST" />
+		
+		<completion string="BASIL_DB_USER" />
+		<completion string="BASIL_DB_PASS" />
+		<completion string="BASIL_DB_NAME" />
+		<completion string="BASIL_DB_HOST" />
+    </set>
+
+    <set name="com.conceitedsoftware.basil.functions">
+        <behavior>
+            <append-dynamic>
+    	        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+    	        <transform-into>(${1:arguments})</transform-into>
+    	    </append-dynamic>
+        </behavior>
+	    
+	    <completion string="basil_html_show_header">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>(${1:string title})</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+	    
+	    <completion string="basil_html_show_footer">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>()</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+	    
+	    <completion string="basil_get_frameworks">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>()</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+	    
+	    <completion string="basil_log">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>(${1:string string})</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+	    
+	    <completion string="basil_fail">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>(${1:string title}, ${2:[string message]})</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+	    
+	    <completion string="basil_system_check">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>()</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+	    
+	    <completion string="basil_generate_new_build_number">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>()</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+	    
+	    <completion string="basil_save_new_build_number">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>()</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+	    
+	    <completion string="basil_print">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>(${1:object var})</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+	    
+	    <completion string="basil_map_configuration">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>()</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+    </set>
+    
+    <set name="com.conceitedsoftware.basil.util.functions">
+        <behavior>
+            <append-dynamic>
+    	        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+    	        <transform-into>(${1:arguments})</transform-into>
+    	    </append-dynamic>
+        </behavior>
+	    
+	    <completion string="array_size">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>(${1:array array})</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+	    
+	    <completion string="subtract_dates">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>(${1:date begin_date}, ${2:date end_date})</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+	    
+	    <completion string="valid">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>(${1:mixed var})</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+	    
+	    <completion string="is_upper">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>(${1:string str})</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+	    
+	    <completion string="is_lower">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>(${1:string str})</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+	    
+	    <completion string="mysqlversion">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>()</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+
+
+        <completion string="apacheversion">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>()</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+	    
+	    <completion string="get_filesize">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>(${1:number size_in_bytes})</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+	    
+	    <completion string="debug_string_backtrace">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>()</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+	    
+	    <completion string="is_valid_xml_string">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>(${1:string xml}, ${2:array errors})</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+	    
+	    <completion string="convertSimpleXmlElementObjectIntoArray">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>(${1:object simplexml_obj}, ${2:int recursion_depth})</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+	    
+	    <completion string="file_get_contents_utf8">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>(${1:string filename})</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+	    
+	    <completion string="utf8_fix">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>(${1:string str})</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+	    
+	    <completion string="is_utf8">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>(${1:string str})</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+        
+        <completion string="safe_str">
+	        <behavior>
+				<append-dynamic>
+					<matched-suffix>(\s*:)|[^:]</matched-suffix>
+					<transform-into>(${1:mixed str})</transform-into>
+				</append-dynamic>
+			</behavior>
+	    </completion>
+
+	</set>
+	
+    <set name="com.conceitedsoftware.basil.classes">
+    
+    	<behavior>
+	        <append-dynamic>
+		        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+		        <transform-into>$0</transform-into>
+		    </append-dynamic>
+	    </behavior>
+	    	    
+	    <completion string="BSString" />
+		<completion string="BSMutableString" />
+		<completion string="BSObject" />
+		<completion string="BSDictionary" />
+		<completion string="BSMutableDictionary" />
+		<completion string="BSNumber" />
+		<completion string="BSArray" />
+		<completion string="BSMutableArray" />
+		<completion string="BSActiveRecord" />
+		<completion string="BSScaffold" />
+		<completion string="BSPlatform" />
+		<completion string="BSRequest" />
+		<completion string="BSPlugIn" />
+		<completion string="BSBase" />
+		<completion string="BSView" />
+		<completion string="BSException" />
+		<completion string="BSNotification" />
+		<completion string="BSURL" />
+		<completion string="BSRange" />
+		<completion string="BSStack" />
+		<completion string="BSData" />
+		<completion string="BSMutableData" />
+		<completion string="BSFileManager" />
+		<completion string="BSPoint" />
+		<completion string="BSBundle" />
+		<completion string="BSPropertyListParser" />
+		<completion string="BSManagedObject" />
+	</set>
+	
+	<!-- BSPlugIn -->
+	<set name="com.conceitedsoftware.basil.classes.BSPlugIn.methods">
+	    <completion string="getVar">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:string var_name})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+		<completion string="postStatus">
+			<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:string status}, ${2:string reason}, ${3:[array additional]}, ${4:[bool quit]})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+		</completion>
+	</set>
+	
+	<!-- BSPlugIn -->
+	<set name="com.conceitedsoftware.basil.classes.BSPlugIn.methods">
+	    <completion string="getVar">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:string var_name})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+		<completion string="postStatus">
+			<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:string status}, ${2:string reason}, ${3:[array additional]}, ${4:[bool quit]})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+		</completion>
+	</set>
+	
+	<!-- BSView -->
+	<set name="com.conceitedsoftware.basil.classes.BSView.methods">
+	    <completion string="assign">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:string var_name}, ${2:mixed val})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+		<completion string="setContent">
+			<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:mixed content})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+		</completion>
+		
+		<completion string="display">
+			<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>()</transform-into>
+			    </append-dynamic>
+		    </behavior>
+		</completion>
+		
+		<completion string="setLayout">
+			<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:string layout})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+		</completion>
+		
+		<completion string="renderPartial">
+			<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:string view_path}, ${2:[array vars]})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+		</completion>
+	</set>
+	
+	<!-- BSObject -->
+	<set name="com.conceitedsoftware.basil.classes.BSObject.methods">
+	    <completion string="respondsToSelector">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:string method_name})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="respondsToMethod">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:string method_name})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="performSelector">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:string method_name})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="isEqual">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:object obj})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="isKindOfClass">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:object obj})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="className">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>()</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	     <completion string="superclass">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>()</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="isSubclassOfClass">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:object obj})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	     <completion string="description">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>()</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	</set>
+	
+	<!-- BSString -->
+	<set name="com.conceitedsoftware.basil.classes.BSString.methods">
+	    <completion string="length">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>()</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="UTF8String">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>()</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="isEqualToString">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:string str})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="caseInsensitiveCompare">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:object str})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="compare">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:object str})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="hasSuffix">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:object str})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="hasPrefix">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:object str})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	     <completion string="rangeOfString">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:object str})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="componentsSeparatedByString">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:object separator})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="characterAtIndex">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:int index})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="substringFromIndex">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:int index})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="substringWithRange">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:BSRange range})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="stringByTrimmingCharactersInSet">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:array set})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="stringByAppendingString">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:object str})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="stringByAppendingPathComponent">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:object str})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="stringByReplacingOccurrencesOfString">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:object old}, ${2:object new})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="stringByReplacingCharactersInRange">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:BSRange range}, ${2:object new})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="doubleValue">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>()</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="intValue">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>()</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="integerValue">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>()</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="boolValue">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>()</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="capitalizedString">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>()</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="lowercaseString">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>()</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="uppercaseString">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>()</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+    </set>
+
+	<!-- BSDictionary -->
+	<set name="com.conceitedsoftware.basil.classes.BSDictionary.methods">
+	    <completion string="count">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>()</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="allKeys">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>()</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="allKeysForObject">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:object obj})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="allValues">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>()</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="objectForKey">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:object key})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="objectForKeys">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:array keys}, ${2:object not_found_marker})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="valueForKey">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:object key})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="containsKey">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:object key})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="writeToFile">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:string filename}, ${2:bool atomically})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <!-- BSMutableDictionary -->
+	    <completion string="setObject">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:object obj}, ${2:object key})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="setValue">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:object obj}, ${2:object key})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="addEntriesFromDictionary">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:dictionary dict})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="setDictionary">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:dictionary dict})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="removeObjectForKey">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:object key})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="removeAllObjects">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>()</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="removeObjectForKeys">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:array keys})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	</set>
+	
+	<!-- BSMutableArray -->
+	<set name="com.conceitedsoftware.basil.classes.BSMutableArray.methods">
+	   <completion string="addObject">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:object obj})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+
+        <completion string="addObjectsFromArray">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:array arr})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	 
+        <completion string="removeLastObject">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>()</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+
+        <completion string="removeObject">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:object obj})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="removeObjectAtIndex">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:int index})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="replaceObjectAtIndex">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:int index}, ${2:object obj})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="setArray">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:array arr})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+	    
+	    <completion string="exchangeObjectAtIndex">
+	    	<behavior>
+	        	<append-dynamic>
+			        <matched-suffix>(\s*:)|[^:]</matched-suffix>
+			        <transform-into>(${1:int index1}, ${2:int index2})</transform-into>
+			    </append-dynamic>
+		    </behavior>
+	    </completion>
+
+	</set>
+</codesense>

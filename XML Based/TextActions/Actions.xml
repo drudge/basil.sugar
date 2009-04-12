@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<action-recipes>
+	<action id="com.conceitedsoftware.TextActions.BasilSugar.CSBasilSugarLogViewAction" category="actions.text.BasilSugar">
+	
+		<class>CSBasilSugarLogViewAction</class>
+		<title>Show Log Viewer</title>
+		<key-equivalent>cmd shift L</key-equivalent>
+		<setup>
+			<filename>/Applications/MAMP/logs/php_error.log</filename>
+		</setup>
+		
+	</action>
+		<action id="com.conceitedsoftware.TextActions.BasilSugar.CSBasilSugarPlanterAction" category="actions.text.BasilSugar">
+	
+		<class>CSBasilSugarPlanterAction</class>
+		<title>Planter new...</title>
+		<key-equivalent>cmd shift P</key-equivalent>
+		<setup>
+			<filename>/Applications/MAMP/logs/php_error.log</filename>
+		</setup>
+		
+	</action>
+</action-recipes>

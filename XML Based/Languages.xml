@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+	<language id="com.conceitedsoftware.basil">
+		<root-zone>sourcecode.php.basil</root-zone>
+		<name>PHP-Basil</name>
+		<detectors>
+			<extension casesensitive="false">phps</extension>
+			<extension casesensitive="false">inc</extension>
+			<extension casesensitive="false">php</extension>
+		</detectors>
+		
+		<meta>
+			<name>Basil</name>
+		    <description>Basil sugar for Espresso.</description>
+		    <author>Nicholas Penree</author>
+		    <identifier>basil</identifier>
+		    <version status="preview">1.0b1</version>
+		    <dependencies>
+		    	<dependency id="com.gridlee.PHP">PHP</dependency>
+                <dependency id="name.elliottcable.Sugar.Regex">Regex</dependency>
+                <dependency id="net.fileability.SQL">SQL</dependency>
+            </dependencies>
+		</meta>
+	</language>
+</settings>
