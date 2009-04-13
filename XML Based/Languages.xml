@@ -2,7 +2,7 @@
 <settings>
 	<language id="com.conceitedsoftware.basil">
 		<root-zone>sourcecode.php.basil</root-zone>
-		<name>PHP-Basil</name>
+		<name>PHP (Basil)</name>
 		<detectors>
 			<extension casesensitive="false">phps</extension>
 			<extension casesensitive="false">inc</extension>
@@ -14,7 +14,7 @@
 		    <description>Basil sugar for Espresso.</description>
 		    <author>Nicholas Penree</author>
 		    <identifier>basil</identifier>
-		    <version status="preview">1.0b1</version>
+		    <version status="preview">1.0b2</version>
 		    <dependencies>
 		    	<dependency id="com.gridlee.PHP">PHP</dependency>
                 <dependency id="name.elliottcable.Sugar.Regex">Regex</dependency>

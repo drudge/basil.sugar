@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<action-recipes>
-	<action id="com.conceitedsoftware.FileActions.BasilSugar.CSBasilSugarLogViewAction" category="actions.file.BasilSugar">
-	
-		<class>CSBasilSugarLogViewAction</class>
-		<title>File Action enabled for any filename</title>
-		
-	</action>
-</action-recipes>

@@ -1,19 +1,32 @@
 //
-//  CSBasilSugarLogViewAction.m
+//  CSBasilSugarShowConsoleAction.m
 //  Basil.sugar
 //
 //  Created by Nicholas Penree on 4/10/09.
 //  Copyright 2009 Conceited Software. All rights reserved.
 //
 
-#import "CSBasilSugarLogViewAction.h"
+#import "CSBasilSugarShowConsoleAction.h"
 #import <EspressoFileActions.h>
 #import <NSString+MRFoundation.h>
 
 #import <Growl/Growl.h>
 
-@implementation CSBasilSugarLogViewAction
-@synthesize paused;
+@implementation CSBasilSugarShowConsoleAction
+	@synthesize paused;
+
++ (void)initialize
+{
+	NSData *defaultColor = [NSArchiver archivedDataWithRootObject:[NSColor whiteColor]];
+	NSDictionary *appDefaults = [NSDictionary dictionaryWithObjectsAndKeys:defaultColor, @"fontColor", 
+																		   @"Monaco", @"fontName", 
+																		   [NSNumber numberWithDouble:9.0], @"fontSize", 
+																		   nil];
+	
+    [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
+}
+
+//------------------------------------------------------------------------------------------------------------------------------------------
 
 - (id)initWithDictionary:(NSDictionary *)dictionary bundlePath:(NSString *)bundlePath
 {
@@ -21,13 +34,18 @@
 	if (self == nil)
 		return nil;
 	
+	if (![NSBundle loadNibNamed:@"CSBasilSugarConsole" owner:self])
+		return nil;
+	
 	_fileName = [[dictionary objectForKey:@"filename"] retain];
-	[NSBundle loadNibNamed:@"CSBasilSugarLogViewer" owner:self];
 	[GrowlApplicationBridge setGrowlDelegate:self];
 	[panel setDelegate:self];
 	[self clearLogView:self];
 	self.paused = YES;
-
+	
+	NSColor *color = (NSColor *)[NSUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"fontColor"]];
+	_fontAttributes = [[NSDictionary alloc] initWithObjectsAndKeys:color, NSForegroundColorAttributeName,
+							 [NSFont fontWithName:[[NSUserDefaults standardUserDefaults] stringForKey:@"fontName"] size:[[NSUserDefaults standardUserDefaults] doubleForKey:@"fontSize"]], NSFontAttributeName, nil];
 	return self;
 }
 
@@ -36,10 +54,8 @@
 - (void)windowWillClose:(NSNotification *)notification
 {
 	if ([notification object] == panel) {
-		NSLog(@"terminating log tailer...");
 		[_task terminate];
 		[self clearLogView:self];
-
 	}
 }
 
@@ -57,9 +73,12 @@
 	[_fileName autorelease];
 	[_task release];
 	[_fileHandle release];
+	[_fontAttributes release];
 	[super dealloc];
 }
 
+//------------------------------------------------------------------------------------------------------------------------------------------
+#pragma mark Sugar Action methods
 //------------------------------------------------------------------------------------------------------------------------------------------
 
 - (BOOL)canPerformActionWithContext:(id)context
@@ -71,7 +90,8 @@
 
 - (BOOL)performActionWithContext:(id)context error:(NSError **)outError
 {
-	[panel setTitle:[_fileName lastPathComponent]];
+	[panel setTitle:[NSString stringWithFormat:@"%@ - Basil Console", [_fileName lastPathComponent]]];
+	
 	[self clearLogView:self];
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self
@@ -90,12 +110,31 @@
 	[_task setStandardOutput: pipe];
 	[_task setStandardError: pipe];
 	[_task launch];
+	
 	self.paused = NO;
+	
 	[panel makeKeyAndOrderFront:nil];
 
 	return YES;
 }
 
+//------------------------------------------------------------------------------------------------------------------------------------------
+#pragma mark Utility methods
+//------------------------------------------------------------------------------------------------------------------------------------------
+
+- (void)logText:(NSString *)textToLog
+{
+	NSAttributedString *string = [[NSAttributedString alloc] initWithString:textToLog attributes:_fontAttributes];
+	
+	@try {
+		[[logTextView textStorage] appendAttributedString:string];
+	}
+	@catch (NSException *e) {
+		NSLog(@"omg fail - %@", e);
+	}
+
+	[string release];
+}
 
 //------------------------------------------------------------------------------------------------------------------------------------------
 #pragma mark Controller actions
@@ -104,8 +143,6 @@
 - (IBAction)clearLogView:(id)sender
 {
 	if (logTextView) {
-		[logTextView setFont:[NSFont fontWithName:@"Monaco" size:9.0]];
-		[logTextView setTextColor:[NSColor whiteColor]];
 		[logTextView setString:@""];
 	}
 }
@@ -115,23 +152,12 @@
 - (IBAction)addMarkerToLogView:(id)sender
 {
 	if (logTextView) {
-		
-		NSDictionary *attribs = [NSDictionary dictionaryWithObjectsAndKeys:[NSColor blackColor], @"NSForegroundColorAttributeName",
-								 [NSFont fontWithName:@"Monaco" size:9.0], @"NSFontAttributeName",
-								 [NSColor whiteColor], @"NSBackgroundColorAttributeName", nil];
-		
-		NSAttributedString *string = [[NSAttributedString alloc] initWithString:@"◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼\n" 
-																	 attributes:attribs];
-		//[[[logText textStorage] mutableString] appendString:@"________________________________________________________________________________________________________\n"];
-		                                                        
-		//[logText setFont:[NSFont fontWithName:@"Monaco" size:9.0]];
-		//[logText setTextColor:[NSColor whiteColor]];
-		[logTextView setEditable:YES];
-		[logTextView insertText:string];
-		[logTextView setEditable:NO];
+		[self logText:@"◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼\n"];
 	}
 }
 
+//------------------------------------------------------------------------------------------------------------------------------------------
+#pragma mark Growl Crap
 //------------------------------------------------------------------------------------------------------------------------------------------
 
 - (NSDictionary *)registrationDictionaryForGrowl
@@ -143,6 +169,8 @@
 			nil];
 }
 
+//------------------------------------------------------------------------------------------------------------------------------------------
+#pragma mark New Data Tailed notification
 //------------------------------------------------------------------------------------------------------------------------------------------
 
 - (void)readPipe:(NSNotification *)notification
@@ -157,35 +185,30 @@
 	text = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
 	
 	@try {
-		[logTextView setFont:[NSFont fontWithName:@"Monaco" size:9.0]];
-		[logTextView setTextColor:[NSColor whiteColor]];
+		if (![[[logTextView textStorage] mutableString] isEqualToString:@""]) {
+			[GrowlApplicationBridge 
+			 notifyWithTitle:[NSString stringWithFormat:@"%@ Updated", [_fileName lastPathComponent]]
+			 description:(([text length] > 20)? [NSString stringWithFormat:@"%@...", [text substringToIndex:19]] : text)
+			 notificationName:@"Log Updated" 
+			 iconData:nil
+			 priority:0
+			 isSticky:NO 
+			 clickContext:nil];
+		}
+		
+		float scrollPos = [[scroller verticalScroller] floatValue]; 
+		
+		[self logText:text];	
+		
+		if( scrollPos == 1.0 || scrollPos == 0.0) {
+			NSRange range;
+			range = NSMakeRange ([[[logTextView textStorage] mutableString] length], 0);
+			[logTextView scrollRangeToVisible: range];
+		}
 	}
 	@catch (NSException * e) {
 		
 	}
-	
-	if (![[[logTextView textStorage] mutableString] isEqualToString:@""]) {
-		//TODO: Add growl notifications
-		[GrowlApplicationBridge 
-		 notifyWithTitle:[NSString stringWithFormat:@"%@ Updated", [_fileName lastPathComponent]]
-		 description:(([text length] > 20)? [NSString stringWithFormat:@"%@...", [text substringToIndex:19]] : text)
-		 notificationName:@"Log Updated" 
-		 iconData:nil
-		 priority:0
-		 isSticky:NO 
-		 clickContext:nil];
-	}
-	
-	float scrollPos = [[scroller verticalScroller] floatValue]; 
-	
-	[[[logTextView textStorage] mutableString] appendString:text];
-	
-	if( scrollPos == 1.0 || scrollPos == 0.0) {
-		NSRange range;
-		range = NSMakeRange ([[[logTextView textStorage] mutableString] length], 0);
-		[logTextView scrollRangeToVisible: range];
-	}
-	
 	[text release];
 	
 	if(data != 0)

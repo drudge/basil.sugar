@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3DE0BA990ED3621700EE948E /* FileActions in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 3DE0BA940ED3620D00EE948E /* FileActions */; };
-		621B3D270F8F945900A5B518 /* CSBasilSugarLogViewAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 621B3D260F8F945900A5B518 /* CSBasilSugarLogViewAction.m */; };
+		621B3D270F8F945900A5B518 /* CSBasilSugarShowConsoleAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 621B3D260F8F945900A5B518 /* CSBasilSugarShowConsoleAction.m */; };
 		621B3D3D0F8F960700A5B518 /* Languages.xml in Resources */ = {isa = PBXBuildFile; fileRef = 621B3D330F8F960700A5B518 /* Languages.xml */; };
 		621B3D3E0F8F960700A5B518 /* CodeSenseProviders in Resources */ = {isa = PBXBuildFile; fileRef = 621B3D340F8F960700A5B518 /* CodeSenseProviders */; };
 		621B3D3F0F8F960700A5B518 /* Syntaxes in Resources */ = {isa = PBXBuildFile; fileRef = 621B3D370F8F960700A5B518 /* Syntaxes */; };
@@ -19,7 +18,7 @@
 		621B3D440F8F961700A5B518 /* CodeSenseLibraries in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 621B3D3A0F8F960700A5B518 /* CodeSenseLibraries */; };
 		621B3D690F8F969A00A5B518 /* BGHUDAppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621B3D680F8F969A00A5B518 /* BGHUDAppKit.framework */; };
 		621B3D7A0F8F96BA00A5B518 /* BGHUDAppKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 621B3D680F8F969A00A5B518 /* BGHUDAppKit.framework */; };
-		621B3D800F8F971C00A5B518 /* CSBasilSugarLogViewer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 621B3D7F0F8F971C00A5B518 /* CSBasilSugarLogViewer.xib */; };
+		621B3D800F8F971C00A5B518 /* CSBasilSugarConsole.xib in Resources */ = {isa = PBXBuildFile; fileRef = 621B3D7F0F8F971C00A5B518 /* CSBasilSugarConsole.xib */; };
 		621B3EFF0F8FA84A00A5B518 /* TextActions in Resources */ = {isa = PBXBuildFile; fileRef = 621B3EFD0F8FA84A00A5B518 /* TextActions */; };
 		621B3F090F8FA8F700A5B518 /* TextActions in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 621B3EFD0F8FA84A00A5B518 /* TextActions */; };
 		621B40210F8FBD8700A5B518 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621B40200F8FBD8700A5B518 /* Growl.framework */; };
@@ -28,6 +27,7 @@
 		621B410F0F8FC88400A5B518 /* CSBasilSugarPlanter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 621B410E0F8FC88400A5B518 /* CSBasilSugarPlanter.xib */; };
 		621B417A0F8FDE0100A5B518 /* readonly.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 621B41780F8FDE0100A5B518 /* readonly.pdf */; };
 		621B417B0F8FDE0100A5B518 /* star.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 621B41790F8FDE0100A5B518 /* star.pdf */; };
+		621B42090F938AF500A5B518 /* Console.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 621B42080F938AF500A5B518 /* Console.tiff */; };
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 		98FE2B5C0F90FC0600944D7D /* Basil.sugar in Copy to Espresso */ = {isa = PBXBuildFile; fileRef = 8D5B49B6048680CD000E48DA /* Basil.sugar */; };
@@ -50,7 +50,6 @@
 				621B3D420F8F961700A5B518 /* CodeSenseProviders in Copy XML Files */,
 				621B3D430F8F961700A5B518 /* Syntaxes in Copy XML Files */,
 				621B3D440F8F961700A5B518 /* CodeSenseLibraries in Copy XML Files */,
-				3DE0BA990ED3621700EE948E /* FileActions in Copy XML Files */,
 			);
 			name = "Copy XML Files";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,15 +85,14 @@
 		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		3D657A0A0E9A6763009E9EB8 /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
-		3DE0BA940ED3620D00EE948E /* FileActions */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FileActions; sourceTree = "<group>"; };
-		621B3D250F8F945900A5B518 /* CSBasilSugarLogViewAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSBasilSugarLogViewAction.h; sourceTree = "<group>"; };
-		621B3D260F8F945900A5B518 /* CSBasilSugarLogViewAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSBasilSugarLogViewAction.m; sourceTree = "<group>"; };
+		621B3D250F8F945900A5B518 /* CSBasilSugarShowConsoleAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSBasilSugarShowConsoleAction.h; sourceTree = "<group>"; };
+		621B3D260F8F945900A5B518 /* CSBasilSugarShowConsoleAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSBasilSugarShowConsoleAction.m; sourceTree = "<group>"; };
 		621B3D330F8F960700A5B518 /* Languages.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Languages.xml; sourceTree = "<group>"; };
 		621B3D340F8F960700A5B518 /* CodeSenseProviders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CodeSenseProviders; sourceTree = "<group>"; };
 		621B3D370F8F960700A5B518 /* Syntaxes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Syntaxes; sourceTree = "<group>"; };
 		621B3D3A0F8F960700A5B518 /* CodeSenseLibraries */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CodeSenseLibraries; sourceTree = "<group>"; };
 		621B3D680F8F969A00A5B518 /* BGHUDAppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BGHUDAppKit.framework; path = Frameworks/BGHUDAppKit.framework; sourceTree = "<group>"; };
-		621B3D7F0F8F971C00A5B518 /* CSBasilSugarLogViewer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CSBasilSugarLogViewer.xib; sourceTree = "<group>"; };
+		621B3D7F0F8F971C00A5B518 /* CSBasilSugarConsole.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CSBasilSugarConsole.xib; sourceTree = "<group>"; };
 		621B3EFD0F8FA84A00A5B518 /* TextActions */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TextActions; sourceTree = "<group>"; };
 		621B40200F8FBD8700A5B518 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = Frameworks/Growl.framework; sourceTree = "<group>"; };
 		621B40E00F8FC6E200A5B518 /* CSBasilSugarPlanterAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSBasilSugarPlanterAction.h; sourceTree = "<group>"; };
@@ -102,6 +100,7 @@
 		621B410E0F8FC88400A5B518 /* CSBasilSugarPlanter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CSBasilSugarPlanter.xib; sourceTree = "<group>"; };
 		621B41780F8FDE0100A5B518 /* readonly.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = readonly.pdf; sourceTree = "<group>"; };
 		621B41790F8FDE0100A5B518 /* star.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = star.pdf; sourceTree = "<group>"; };
+		621B42080F938AF500A5B518 /* Console.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Console.tiff; sourceTree = "<group>"; };
 		8D5B49B6048680CD000E48DA /* Basil.sugar */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Basil.sugar; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98FE2C470F9111C500944D7D /* blkStar.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = blkStar.tiff; sourceTree = "<group>"; };
@@ -150,6 +149,7 @@
 		089C167CFE841241C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				621B42080F938AF500A5B518 /* Console.tiff */,
 				98FE2C670F9148B600944D7D /* sync.pdf */,
 				98FE2C5A0F9140FA00944D7D /* pause.pdf */,
 				98FE2C560F913E4600944D7D /* blkContextButton.tiff */,
@@ -159,7 +159,7 @@
 				621B41790F8FDE0100A5B518 /* star.pdf */,
 				8D5B49B7048680CD000E48DA /* Info.plist */,
 				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
-				621B3D7F0F8F971C00A5B518 /* CSBasilSugarLogViewer.xib */,
+				621B3D7F0F8F971C00A5B518 /* CSBasilSugarConsole.xib */,
 				621B410E0F8FC88400A5B518 /* CSBasilSugarPlanter.xib */,
 			);
 			name = Resources;
@@ -210,7 +210,6 @@
 				621B3D370F8F960700A5B518 /* Syntaxes */,
 				621B3D3A0F8F960700A5B518 /* CodeSenseLibraries */,
 				621B3D330F8F960700A5B518 /* Languages.xml */,
-				3DE0BA940ED3620D00EE948E /* FileActions */,
 			);
 			path = "XML Based";
 			sourceTree = "<group>";
@@ -218,8 +217,8 @@
 		3DE0B8B50ED3261600EE948E /* File Actions */ = {
 			isa = PBXGroup;
 			children = (
-				621B3D250F8F945900A5B518 /* CSBasilSugarLogViewAction.h */,
-				621B3D260F8F945900A5B518 /* CSBasilSugarLogViewAction.m */,
+				621B3D250F8F945900A5B518 /* CSBasilSugarShowConsoleAction.h */,
+				621B3D260F8F945900A5B518 /* CSBasilSugarShowConsoleAction.m */,
 				621B40E00F8FC6E200A5B518 /* CSBasilSugarPlanterAction.h */,
 				621B40E10F8FC6E200A5B518 /* CSBasilSugarPlanterAction.m */,
 			);
@@ -279,7 +278,7 @@
 				621B3D3E0F8F960700A5B518 /* CodeSenseProviders in Resources */,
 				621B3D3F0F8F960700A5B518 /* Syntaxes in Resources */,
 				621B3D400F8F960700A5B518 /* CodeSenseLibraries in Resources */,
-				621B3D800F8F971C00A5B518 /* CSBasilSugarLogViewer.xib in Resources */,
+				621B3D800F8F971C00A5B518 /* CSBasilSugarConsole.xib in Resources */,
 				621B3EFF0F8FA84A00A5B518 /* TextActions in Resources */,
 				621B410F0F8FC88400A5B518 /* CSBasilSugarPlanter.xib in Resources */,
 				621B417A0F8FDE0100A5B518 /* readonly.pdf in Resources */,
@@ -289,6 +288,7 @@
 				98FE2C570F913E4600944D7D /* blkContextButton.tiff in Resources */,
 				98FE2C5B0F9140FA00944D7D /* pause.pdf in Resources */,
 				98FE2C680F9148B600944D7D /* sync.pdf in Resources */,
+				621B42090F938AF500A5B518 /* Console.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,7 +321,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "open -a Espresso";
+			shellScript = "#open -a Espresso";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -330,7 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				621B3D270F8F945900A5B518 /* CSBasilSugarLogViewAction.m in Sources */,
+				621B3D270F8F945900A5B518 /* CSBasilSugarShowConsoleAction.m in Sources */,
 				621B40E20F8FC6E200A5B518 /* CSBasilSugarPlanterAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
