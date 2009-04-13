@@ -153,6 +153,8 @@
 {
 	if (logTextView) {
 		[self logText:@"◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼◼\n"];
+		NSRange range = NSMakeRange ([[[logTextView textStorage] mutableString] length], 0);
+		[logTextView scrollRangeToVisible:range];
 	}
 }
 
@@ -201,9 +203,8 @@
 		[self logText:text];	
 		
 		if( scrollPos == 1.0 || scrollPos == 0.0) {
-			NSRange range;
-			range = NSMakeRange ([[[logTextView textStorage] mutableString] length], 0);
-			[logTextView scrollRangeToVisible: range];
+			NSRange range = NSMakeRange ([[[logTextView textStorage] mutableString] length], 0);
+			[logTextView scrollRangeToVisible:range];
 		}
 	}
 	@catch (NSException * e) {
