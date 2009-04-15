@@ -47,16 +47,23 @@
 	NSString *string;
 	NSAlert *sheet;
 	NSDictionary *lintResults;
+	NSString *tmpFile = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat: @"%.0f.%@", [NSDate timeIntervalSinceReferenceDate] * 1000.0, @"php"]];
+
+	// write our current text to a temp file so we can pass it to php lint checker
+	[[context string] writeToFile:tmpFile atomically:YES encoding:NSUTF8StringEncoding error:nil];
 	
     [task setLaunchPath:phpPath];
-    [task setArguments:[NSArray arrayWithObjects: @"-l", [[[context documentContext] fileURL] path], nil]];
+    [task setArguments:[NSArray arrayWithObjects: @"-l", tmpFile, nil]];
     [task setStandardOutput:pipe];
     [task launch];
 		
     string = [[NSString alloc] initWithData:[[pipe fileHandleForReading] readDataToEndOfFile] encoding:NSUTF8StringEncoding];
-	lintResults = [self parseLintResult:string];
+	lintResults = [self parseLintResult:[string stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@" in %@", tmpFile] withString:@""]];
 	[string release];
 	[task release];
+	
+	// remove temp file just be be safe
+	[[NSFileManager defaultManager] removeFileAtPath:tmpFile handler:nil];
 
 	sheet = [NSAlert alertWithMessageText:[lintResults objectForKey:@"CSTitle"] defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:[lintResults objectForKey:@"CSMessage"]];   
 	[sheet beginSheetModalForWindow:[context windowForSheet] modalDelegate:nil didEndSelector:nil contextInfo:nil];
@@ -74,13 +81,13 @@
 	// only english support atm, otherwise it will just toss the output into a sheet
 	
 	if ([result hasPrefix:@"No syntax errors detected in"]) {
-		title = result;
-		message = @"Please note that we are referring to the last saved version of the file when checking the syntax. Please make sure to save before checking syntax.";
+		title = @"No syntax errors detected.";
+		message = @"Please note that this is syntax checker, which will look throughout for scripting tags and ensure the code within complies with the PHP language structure. It will not pick up runtime level errors.";
 	} else if ([result containsString:@"Errors parsing"]) {
 		NSRange r = [result rangeOfString:@"Errors parsing"];
 		
 		if (r.location != NSNotFound) {
-			title = [[result substringFromIndex:r.location] stringByRemovingLeadingWhitespace];
+			title = @"We've detected syntax errors during parsing.";
 			message = [[result substringToIndex:r.location] stringByRemovingLeadingWhitespace];
 		} else {
 			title = @"PHP Syntax Check";
