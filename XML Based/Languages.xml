@@ -7,6 +7,10 @@
 			<extension casesensitive="false">phps</extension>
 			<extension casesensitive="false">inc</extension>
 			<extension casesensitive="false">php</extension>
+			<combo>
+				<extension casesensitive="false">php</extension>
+				<match-content lines="1">^(&lt;)(\?)(php|=)?</match-content>
+			</combo>
 		</detectors>
 		
 		<meta>
@@ -16,9 +20,9 @@
 		    <identifier>basil</identifier>
 		    <version status="preview">1.0b2</version>
 		    <dependencies>
-		    	<dependency id="com.gridlee.PHP">PHP</dependency>
-                <dependency id="name.elliottcable.Sugar.Regex">Regex</dependency>
-                <dependency id="net.fileability.SQL">SQL</dependency>
+				<dependency id="com.gridlee.PHP">PHP</dependency>
+				<dependency id="name.elliottcable.Sugar.Regex">Regex</dependency>
+				<dependency id="net.fileability.SQL">SQL</dependency>
             </dependencies>
 		</meta>
 	</language>

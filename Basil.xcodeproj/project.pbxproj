@@ -99,8 +99,8 @@
 		621B41780F8FDE0100A5B518 /* readonly.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = readonly.pdf; sourceTree = "<group>"; };
 		621B41790F8FDE0100A5B518 /* star.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = star.pdf; sourceTree = "<group>"; };
 		621B42080F938AF500A5B518 /* Console.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Console.tiff; sourceTree = "<group>"; };
-		621B43C30F951CEF00A5B518 /* CSBasilSugarCheckSyntaxAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSBasilSugarCheckSyntaxAction.h; sourceTree = "<group>"; };
-		621B43C40F951CEF00A5B518 /* CSBasilSugarCheckSyntaxAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSBasilSugarCheckSyntaxAction.m; sourceTree = "<group>"; };
+		621B43C30F951CEF00A5B518 /* CSBasilSugarCheckSyntaxAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSBasilSugarCheckSyntaxAction.h; path = "File Actions/CSBasilSugarCheckSyntaxAction.h"; sourceTree = "<group>"; };
+		621B43C40F951CEF00A5B518 /* CSBasilSugarCheckSyntaxAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSBasilSugarCheckSyntaxAction.m; path = "File Actions/CSBasilSugarCheckSyntaxAction.m"; sourceTree = "<group>"; };
 		621B43F10F95273300A5B518 /* FileActions */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FileActions; sourceTree = "<group>"; };
 		8D5B49B6048680CD000E48DA /* Basil.sugar */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Basil.sugar; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -222,8 +222,6 @@
 			children = (
 				621B40E00F8FC6E200A5B518 /* CSBasilSugarPlanterAction.h */,
 				621B40E10F8FC6E200A5B518 /* CSBasilSugarPlanterAction.m */,
-				621B43C30F951CEF00A5B518 /* CSBasilSugarCheckSyntaxAction.h */,
-				621B43C40F951CEF00A5B518 /* CSBasilSugarCheckSyntaxAction.m */,
 			);
 			path = "File Actions";
 			sourceTree = "<group>";
@@ -231,6 +229,8 @@
 		621B43C90F9525C400A5B518 /* Text Actions */ = {
 			isa = PBXGroup;
 			children = (
+				621B43C30F951CEF00A5B518 /* CSBasilSugarCheckSyntaxAction.h */,
+				621B43C40F951CEF00A5B518 /* CSBasilSugarCheckSyntaxAction.m */,
 				621B3D250F8F945900A5B518 /* CSBasilSugarShowConsoleAction.h */,
 				621B3D260F8F945900A5B518 /* CSBasilSugarShowConsoleAction.m */,
 			);

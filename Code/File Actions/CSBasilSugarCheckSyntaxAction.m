@@ -17,7 +17,7 @@
 	if (self == nil)
 		return nil;
 	
-	phpPath = [[dictionary objectForKey:@"php-path"] retain];
+	phpPath = [[dictionary objectForKey:@"php-path"] copy]; //a.g.
 	
 	return self;
 }
@@ -80,9 +80,9 @@
 	
 	// only english support atm, otherwise it will just toss the output into a sheet
 	
-	if ([result hasPrefix:@"No syntax errors detected in"]) {
+	if ([result hasPrefix:@"No syntax errors detected"]) {
 		title = @"No syntax errors detected.";
-		message = @"Please note that this is syntax checker, which will look throughout for scripting tags and ensure the code within complies with the PHP language structure. It will not pick up runtime level errors.";
+		message = @"Please note that this is syntax checker, which will look for scripting tags and ensure the code within complies with the PHP language structure. It will not pick up runtime level errors.";
 	} else if ([result containsString:@"Errors parsing"]) {
 		NSRange r = [result rangeOfString:@"Errors parsing"];
 		
