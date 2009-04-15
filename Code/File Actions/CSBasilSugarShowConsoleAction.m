@@ -7,9 +7,7 @@
 //
 
 #import "CSBasilSugarShowConsoleAction.h"
-#import <EspressoFileActions.h>
-#import <NSString+MRFoundation.h>
-
+#import <EspressoSDK.h>
 #import <Growl/Growl.h>
 
 @implementation CSBasilSugarShowConsoleAction

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <action-categories>
-	<category id="actions.text.BasilSugar" show="sub">
+	<category id="actions.file.BasilSugar" show="sub">
 		<title>Basil</title>
 	</category>
 </action-categories>

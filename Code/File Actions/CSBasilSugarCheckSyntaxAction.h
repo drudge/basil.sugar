@@ -1,16 +1,16 @@
 //
-//  CSBasilSugarPlanterAction.h
+//  CSBasilSugarCheckSyntaxAction.h
 //  Basil.sugar
 //
-//  Created by Nicholas Penree on 4/10/09.
+//  Created by Nicholas Penree on 4/14/09.
 //  Copyright 2009 Conceited Software. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
 
 
-@interface CSBasilSugarPlanterAction : NSObject {
-	IBOutlet id planterSheet;
+@interface CSBasilSugarCheckSyntaxAction : NSObject {
+	NSString *phpPath;
 }
 
 - (id)initWithDictionary:(NSDictionary *)dictionary bundlePath:(NSString *)bundlePath;
@@ -19,7 +19,6 @@
 - (BOOL)canPerformActionWithContext:(id)context;
 - (BOOL)performActionWithContext:(id)context error:(NSError **)outError;
 
-- (IBAction)cancelPlanting:(id)sender;
-- (IBAction)doPlanting:(id)sender;
+- (NSDictionary *)parseLintResult:(NSString *)result;
 
 @end

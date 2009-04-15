@@ -1,12 +1,20 @@
 <?xml version="1.0"?>
 <action-recipes>
-	<action id="com.conceitedsoftware.TextActions.BasilSugar.CSBasilSugarLogViewAction" category="actions.text.BasilSugar">
-	
+	<action id="com.conceitedsoftware.TextActions.BasilSugar.CSBasilSugarShowConsoleAction" category="actions.text.BasilSugar">
 		<class>CSBasilSugarShowConsoleAction</class>
 		<title>Show Console...</title>
 		<key-equivalent>cmd shift L</key-equivalent>
 		<setup>
 			<filename>/Users/npenree/Developer/Test/www/Resources/Logs/php_errors.log</filename>
+		</setup>
+	</action>
+	
+	<action id="com.conceitedsoftware.TextActions.BasilSugar.CSBasilSugarCheckSyntaxAction" category="actions.text.BasilSugar">
+		<class>CSBasilSugarCheckSyntaxAction</class>
+		<title>Check Syntax...</title>
+		<key-equivalent>cmd shift ;</key-equivalent>
+		<setup>
+			<php-path>/usr/bin/php</php-path>
 		</setup>
 	</action>
 </action-recipes>
