@@ -13,6 +13,10 @@
 	IBOutlet id webView;
 	IBOutlet id panel;
 	IBOutlet id searchField;
+	
+	IBOutlet id lookupPanel;
+	IBOutlet id lookupSearchField;
+	IBOutlet id providerPopup;
 }
 
 - (id)initWithDictionary:(NSDictionary *)dictionary bundlePath:(NSString *)bundlePath;
@@ -31,5 +35,8 @@
 
 - (IBAction)goBack:(id)sender;
 - (IBAction)goForward:(id)sender;
+
+- (IBAction)cancelLookup:(id)sender;
+- (IBAction)performLookup:(id)sender;
 
 @end

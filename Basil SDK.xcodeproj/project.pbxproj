@@ -25,6 +25,7 @@
 		621B42090F938AF500A5B518 /* Console.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 621B42080F938AF500A5B518 /* Console.tiff */; };
 		621B43C50F951CEF00A5B518 /* CSBasilSugarCheckSyntaxAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 621B43C40F951CEF00A5B518 /* CSBasilSugarCheckSyntaxAction.m */; };
 		621B44090F95274400A5B518 /* FileActions in Copy XML Files */ = {isa = PBXBuildFile; fileRef = 621B43F10F95273300A5B518 /* FileActions */; };
+		62577F640F9769DC00D4C38C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62577F630F9769DC00D4C38C /* WebKit.framework */; };
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 		98ABD2580F96B07900D05A3F /* CSBasilSugarShowReferenceAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 98ABD2570F96B07900D05A3F /* CSBasilSugarShowReferenceAction.m */; };
@@ -106,6 +107,7 @@
 		621B43C30F951CEF00A5B518 /* CSBasilSugarCheckSyntaxAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSBasilSugarCheckSyntaxAction.h; path = "File Actions/CSBasilSugarCheckSyntaxAction.h"; sourceTree = "<group>"; };
 		621B43C40F951CEF00A5B518 /* CSBasilSugarCheckSyntaxAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSBasilSugarCheckSyntaxAction.m; path = "File Actions/CSBasilSugarCheckSyntaxAction.m"; sourceTree = "<group>"; };
 		621B43F10F95273300A5B518 /* FileActions */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FileActions; sourceTree = "<group>"; };
+		62577F630F9769DC00D4C38C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
 		8D5B49B6048680CD000E48DA /* Basil.sugar */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Basil.sugar; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98ABD2560F96B07900D05A3F /* CSBasilSugarShowReferenceAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSBasilSugarShowReferenceAction.h; path = ../CSBasilSugarShowReferenceAction.h; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
 				621B3D690F8F969A00A5B518 /* BGHUDAppKit.framework in Frameworks */,
 				621B40210F8FBD8700A5B518 /* Growl.framework in Frameworks */,
+				62577F640F9769DC00D4C38C /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +194,7 @@
 		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				62577F630F9769DC00D4C38C /* WebKit.framework */,
 				621B40200F8FBD8700A5B518 /* Growl.framework */,
 				621B3D680F8F969A00A5B518 /* BGHUDAppKit.framework */,
 				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,

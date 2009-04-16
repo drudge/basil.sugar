@@ -8,6 +8,7 @@
 
 #import "CSBasilSugarShowReferenceAction.h"
 #import <EspressoSDK.h>
+#import <WebKit/WebKit.h>
 
 @implementation CSBasilSugarShowReferenceAction
 
@@ -52,12 +53,17 @@
 {
 	NSString *string = [[context string] substringWithRange:[[[context selectedRanges] objectAtIndex:0] rangeValue]];
 	
-	NSLog(@"-- %@", [[context selectedRanges] objectAtIndex:0]);
-	[panel setTitle:[NSString stringWithFormat:@"%@ - Basil Reference", string]];
-	
-	NSLog(@"%@", string);
-	[webView setMainFrameURL:[self urlStringForWord:string]];
-	[panel makeKeyAndOrderFront:nil];
+	if (![string isEqualToString:@""]) {
+		NSLog(@"-- %@", [[context selectedRanges] objectAtIndex:0]);
+		[panel setTitle:[NSString stringWithFormat:@"%@ - Basil Reference", string]];
+		
+		NSLog(@"%@", string);
+		[webView setMainFrameURL:[self urlStringForWord:string]];
+		[panel makeKeyAndOrderFront:nil];
+	} else {
+		NSLog(@"nothing selected");
+		[lookupPanel makeKeyAndOrderFront:nil];
+	}
 	
 	return YES;
 }
@@ -123,7 +129,14 @@
     if (commandSelector == @selector(insertNewline:)) {
 		// enter pressed
 		NSLog(@"enter");
-		result = YES;
+		
+		if (control == lookupSearchField) {
+			[self performLookup:self];
+			
+			result = YES;
+		}
+		
+		return NO;
     }
 	else if(commandSelector == @selector(moveLeft:)) {
 		// left arrow pressed
@@ -146,6 +159,36 @@
 		result = YES;
 	}
     return result;
+}
+
+//------------------------------------------------------------------------------------------------------------------------------------------
+
+- (IBAction)cancelLookup:(id)sender
+{
+	[lookupPanel orderOut:sender];
+}
+
+//------------------------------------------------------------------------------------------------------------------------------------------
+
+- (IBAction)performLookup:(id)sender
+{
+	NSString *string;
+	
+	[panel setTitle:[NSString stringWithFormat:@"%@ - Basil Reference", [lookupSearchField stringValue]]];
+	NSLog(@"%@", [providerPopup selectedItem]);
+	if ([[[providerPopup selectedItem] title] isEqualToString:@"Google"]) {
+		string = [NSString stringWithFormat:@"http://google.com/search?q=%@", [lookupSearchField stringValue]];
+	} else if ([[[providerPopup selectedItem] title] isEqualToString:@"Apple"]) {
+		string = [NSString stringWithFormat:@"http://developer.apple.com/search.php?&q=%@&as_q=filetype:html%20OR%20filetype:htm&num=10&lr=lang_en&site=(guides)|(releasenotes)|(reference)|(samplecode)|(technicalnotes)|(technicalqas)", [lookupSearchField stringValue]];
+	} else if ([[[providerPopup selectedItem] title] isEqualToString:@"PHP"]) {
+		string = [NSString stringWithFormat:@"http://php.net/%@", [lookupSearchField stringValue]];
+	} else {
+		return;
+	}
+	
+	[webView setMainFrameURL:string];
+	[lookupPanel orderOut:sender];
+	[panel makeKeyAndOrderFront:nil];
 }
 
 @end
