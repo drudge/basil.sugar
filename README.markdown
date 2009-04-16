@@ -15,7 +15,7 @@ doing so can be found on their respective homes.
     
     git clone git://github.com/conceited-drudge/basil.sugar.git ./BasilSDK
 
-2. Open Basil.xcodeproj and click Build.
+2. Open Basil SDK.xcodeproj and click Build.
     
 3. Close Espresso and reload, the sugar should be installed and functional.
 

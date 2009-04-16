@@ -17,4 +17,12 @@
 			<php-path>/usr/bin/php</php-path>
 		</setup>
 	</action>
+	
+	<action id="com.conceitedsoftware.TextActions.BasilSugar.CSBasilSugarShowReferenceAction" category="actions.text.BasilSugar">
+		<class>CSBasilSugarShowReferenceAction</class>
+		<title>Show Documenation...</title>
+		<key-equivalent>cmd shift '</key-equivalent>
+		<setup>
+		</setup>
+	</action>
 </action-recipes>
